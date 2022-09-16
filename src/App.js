@@ -1,8 +1,9 @@
 import React from 'react';
 import {
+  Link,
+  Navigate,
   Route,
-  Routes,
-  Link
+  Routes
 } from 'react-router-dom';
 import Home from './Home';
 import Identity from './Identity';
@@ -14,16 +15,16 @@ function App() {
     <Container>
       <Nav>
         <Nav.Item>
-          <Nav.Link as={Link} to="/">home</Nav.Link>
+          <Nav.Link as={Link} to="/us">universal basic income</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link as={Link} to="/identity">identity</Nav.Link>
+          <Nav.Link as={Link} to="/id">identity and verification</Nav.Link>
         </Nav.Item>
       </Nav>
-      <hr />
       <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/identity" element={ <Identity /> } />
+        <Route path="/" element={<Navigate to="/us" replace />} />
+        <Route path="/us" element={ <Home /> } />
+        <Route path="/id" element={ <Identity /> } />
       </Routes>
     </Container>
   );
